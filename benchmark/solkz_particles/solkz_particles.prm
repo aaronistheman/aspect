@@ -97,7 +97,8 @@ subsection Compositional initial conditions
   subsection Function
     set Variable names      = x,z
     set Function constants  = pi = 3.1415926536
-    set Function expression = 1.0 - sin(pi*z)*cos(pi*x);
+    # set Function expression = 1.0 - sin(pi*z)*cos(pi*x);
+    set Function expression = -1 * sin(2*z) * cos(3*pi*x) 
     
     # set Function constants  = pi=3.1415926, eta_b=1e6, background_density=1.0
     # set Function expression =  background_density - sin(pi*z) * cos(pi*x); if(x<0.5, 1, eta_b)
