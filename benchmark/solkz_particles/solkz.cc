@@ -660,15 +660,13 @@ namespace aspect
     SolKzMaterial<dim>::
     viscosity (const double,
                const double,
-               const std::vector<double> &composition,       /*composition*/
+               const std::vector<double> &,       /*composition*/
                const SymmetricTensor<2,dim> &,
                const Point<dim> &p) const
     {
       // defined as given in the Duretz et al. paper
-      // static const double B = 0.5 * std::log(1e6);
-      // return std::exp(2*B*p[1]);
-
-      return composition[0];
+      static const double B = 0.5 * std::log(1e6);
+      return std::exp(2*B*p[1]);
     }
 
 
@@ -739,11 +737,13 @@ namespace aspect
     SolKzMaterial<dim>::
     density (const double,
              const double,
-             const std::vector<double> &, /*composition*/
+             const std::vector<double> &composition, /*composition*/
              const Point<dim> &p) const
     {
       // defined as given in the paper
-      return -std::sin(2*p[1])*std::cos(3*numbers::PI*p[0]);
+      // return -std::sin(2*p[1])*std::cos(3*numbers::PI*p[0]);
+      
+      return composition[0];
     }
 
 
